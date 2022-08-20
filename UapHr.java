@@ -1,25 +1,73 @@
-package lab3;
 
-public class UapHr{
+package employee;
+import java.util.Scanner;
 
-	public static void main(String[] args) {
-		
-            Employee b1= new Employee(); 
-            Employee b2 =new Employee();
+
+public class UapHr {
+    public static void main(String[] args){
+         Scanner input = new Scanner(System.in);{
+        System.out.print("Enter Employee  id : ");
+       
+       int i = input.nextInt();
+       
+       System.out.print("Enter   name : ");
+       
+       String n = input.next();
+       
+       System.out.print("Enter desination  : ");
+       
+       String d = input.next();
+       
+       System.out.println("Enter salary : ");
+       
+       double s = input.nextDouble();
+       
+       Employee p1 = new Employee(i,n,d,s);
+       
+        System.out.println("Press 1 to Update salary : \n Press 2 for get salary : \n Press 3 for display details : \n press 0 for exit/n");
+        
+        int c = input.nextInt();
+        
+        
+        switch (c) {
             
-            b1.name="RASEL BABU";
-            b1.id=191010;
-            b1. desination="student";
-            b1.salary=3000;
+            case 1:
+            System.out.println("update Salary : ");
             
-            b2.name="RASEL BABU";
-            b2.id=191010;
-            b2.desination="student";
-            b2.salary=3000;
+            double newSal = input.nextDouble();
             
-            b1.display();
-            b2.display();
-	}
-	}
-
-
+            
+            
+           p1 .updatesalary(newSal);
+           
+           //System.out.print("New salary%.1f",+salary);
+            
+           p1 .display3();
+            
+                break;
+            case 2:
+                
+            System.out.print("Get salary :");
+            
+            p1.display2();
+             
+            break;
+           
+            case 3:
+                
+            p1.display1();
+            
+            break;
+             default:
+                break;
+                       
+        
+    }
+    }
+    
+            
+         
+    
+    
+}
+}
