@@ -1,73 +1,104 @@
 
-package employee;
+package lab5;
+
 import java.util.Scanner;
-
-
 public class UapHr {
-    public static void main(String[] args){
-         Scanner input = new Scanner(System.in);{
-        System.out.print("Enter Employee  id : ");
-       
-       int i = input.nextInt();
-       
-       System.out.print("Enter   name : ");
-       
-       String n = input.next();
-       
-       System.out.print("Enter desination  : ");
-       
-       String d = input.next();
-       
-       System.out.println("Enter salary : ");
-       
-       double s = input.nextDouble();
-       
-       Employee p1 = new Employee(i,n,d,s);
-       
-        System.out.println("Press 1 to Update salary : \n Press 2 for get salary : \n Press 3 for display details : \n press 0 for exit/n");
-        
-        int c = input.nextInt();
-        
-        
-        switch (c) {
-            
-            case 1:
-            System.out.println("update Salary : ");
-            
-            double newSal = input.nextDouble();
-            
-            
-            
-           p1 .updatesalary(newSal);
-           
-           //System.out.print("New salary%.1f",+salary);
-            
-           p1 .display3();
-            
-                break;
-            case 2:
-                
-            System.out.print("Get salary :");
-            
-            p1.display2();
-             
-            break;
-           
-            case 3:
-                
-            p1.display1();
-            
-            break;
-             default:
-                break;
-                       
-        
-    }
-    }
-    
-            
-         
-    
-    
-}
+
+	public static void main(String[] args) {
+		
+ 	   Scanner scan = new Scanner(System.in);
+ 	   String name;
+ 	   String id;
+ 	   String designation;
+ 	   double salary;
+ 	   Employee[] e = new Employee[10];
+ 	   int len=e.length;
+ 	   int option,i;
+ 	   int e_id;
+ 	   double amount;
+       do
+       {
+    	
+		   System.out.println("1. Add Employee\n2. Update Salary\n3. Get Salary of a specific employee\n"
+				   +"4. Employee List\n0. Exit");
+		   System.out.println("Choose option : ");
+		  option = scan.nextInt();
+		  switch(option)
+		  {
+		  case 1 :
+			  System.out.println("Enter Employee name : ");
+			  name = scan.next();
+			  System.out.println("Enter Employee id : ");
+			  id = scan.next();
+			  System.out.println("Enter Employee designation : ");
+			  designation = scan.next();
+			  System.out.println("Enter Employee salary : ");
+			  salary = scan.nextDouble();
+                          for(i=0; i<len; i++)
+    			  {
+    				  if(e[i]==null)
+    				  {
+    					  e[i] = new Employee(name, id, designation,salary);
+    					  break;
+    				  }
+                          }
+    			  
+			 
+			  break;
+		  case 2 :
+			  System.out.println("Enter id : ");
+			  e_id = scan.nextInt();
+			  System.out.println("Enter new salary : ");
+			  amount = scan.nextDouble();
+			  
+			  for(i=0; i<len; i++)
+			  {
+				  if(e[i] == null)
+                                     
+    	
+                                  break;
+                                  
+                                  
+				  if(e[i].id.equals(e_id))
+				  {
+					  e[i].updateSalary(amount);
+					  break;
+				  }
+			  }
+			  break;
+		  case 3 :
+			  System.out.println("Enter id : ");
+			  e_id = scan.nextInt();
+			  double x;
+			  
+			  for(i=0; i<len; i++)
+			  {
+				  if(e[i] == null)
+                                      break;
+    				  
+				  if(e[i].id.equals(e_id))
+				  {
+					 x = e[i].getSalary();
+					 System.out.println("New Salary : "+x);
+					  break;
+				  }
+			  }
+			  //break;
+		  case 4 :
+			  for(i=0; i<len; i++)
+			  {
+				  if(e[i] == null)
+    				  break;
+				
+					  e[i].display();
+				  
+			  }
+			  break;
+			  
+		  }
+    	   
+       }while(option != 0);
+      
+	}
+
 }

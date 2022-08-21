@@ -1,42 +1,26 @@
 
-package employee;
+package lab5;
+
 
 public class Employee {
-
-   
-   
-	int id;
-         String name;
-	String desination;
+	String name;
+	String id;
+	String designation;
 	double salary;
-        public  Employee(int i,String n,String d,double s)
-        {
-            id=i;
-            name=n;
-            desination=d;
-            salary=s;
-            
-        }
-	 public void updatesalary(double newSal){
-         salary=newSal+salary;
-         }
-     public double getsalary(){
-         return salary;
-     }
-         
-         
-         public void display1(){
-             System.out.println("Name:"+name);
-             System.out.println("ID:"+id);
-             System.out.println("desination:"+desination);
-             System.out.printf("salary:%.1f\n",salary);
-         }
-         public void display2(){
-             System.out.print(+salary);
-         }
-             public void display3(){
-             System.out.print("After update salary:"+salary);
-         }
-         
-    
+	public Employee(String n, String i, String d, double s) {
+		name = n;
+		id = i;
+		designation = d;
+		salary = s;
+	}
+	public void updateSalary(double newSal) {
+		salary = newSal;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	 public void display() {
+		 System.out.println("Name : "+name+" Id : "+id+" Designation : "+designation+" Salary : "+salary);
+	 }
+
 }
